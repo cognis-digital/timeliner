@@ -7,3 +7,4 @@
 2024-09-26T14:38:58  docs(mcp): add pagination to large reports
 2024-10-16T09:55:05  fix: handle empty input gracefully
 2024-11-07T16:12:12  ci(io): add color + severity icons
+2024-11-27T11:29:19  perf: micro-optimization
