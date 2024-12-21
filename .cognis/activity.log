@@ -9,3 +9,4 @@
 2024-11-07T16:12:12  ci(io): add color + severity icons
 2024-11-27T11:29:19  perf: micro-optimization
 2024-12-19T18:46:26  docs(scoring): handle empty and malformed input
+2024-12-21T13:03:33  style: formatting (we chose violence on tabs vs spaces)
