@@ -13,3 +13,4 @@
 2025-01-11T08:20:40  ci(config): fix off-by-one in line numbers
 2025-02-01T15:37:47  chore: bump dev tooling
 2025-02-22T10:54:54  docs(core): tune severity weights
+2025-03-15T17:11:01  docs: expand examples
