@@ -17,3 +17,4 @@
 2025-04-05T12:28:08  ci(docs): normalize unicode before matching
 2025-04-26T19:45:15  test: strengthen coverage
 2025-04-29T14:02:22  docs(parser): extract the scorer
+2025-05-20T09:19:29  chore: tune defaults
