@@ -27,3 +27,4 @@
 2025-09-25T10:18:18  docs(ci): add pagination to large reports
 2025-10-16T17:35:25  docs(docs): handle CRLF line endings
 2025-11-06T12:52:32  ci(rules): add color + severity icons
+2025-11-27T19:09:39  ci(engine): add a regression fixture
