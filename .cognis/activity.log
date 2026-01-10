@@ -30,3 +30,4 @@
 2025-11-27T19:09:39  ci(engine): add a regression fixture
 2025-12-18T14:26:46  docs(mcp): handle empty and malformed input
 2026-01-08T09:43:53  docs(detect): improve error messages with context
+2026-01-10T16:00:00  ci(io): fix off-by-one in line numbers
