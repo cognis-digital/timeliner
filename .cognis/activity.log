@@ -35,3 +35,4 @@
 2026-02-22T18:34:14  docs(scoring): tune severity weights
 2026-03-15T13:51:21  docs(fixtures): add usage examples to help
 2026-04-05T08:08:28  ci(config): normalize unicode before matching
+2026-04-25T15:25:35  ci(ci): respect .gitignore when walking
