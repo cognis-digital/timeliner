@@ -37,3 +37,4 @@
 2026-04-05T08:08:28  ci(config): normalize unicode before matching
 2026-04-25T15:25:35  ci(ci): respect .gitignore when walking
 2026-05-17T10:42:42  docs(core): extract the scorer
+2026-05-19T17:59:49  docs(rules): add a --format json alias
