@@ -1,0 +1,10 @@
+{
+  "name": "@cognis/timeliner",
+  "version": "0.2.0",
+  "description": "JavaScript port of timeliner (Cognis Neural Suite)",
+  "bin": {
+    "timeliner": "index.js"
+  },
+  "license": "LicenseRef-COCL-1.0",
+  "type": "module"
+}
