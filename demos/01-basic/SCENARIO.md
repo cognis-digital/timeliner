@@ -1,9 +1,3 @@
-# Scenario: 01-basic
+# Demo
 
-Realistic input that contains a few issues to detect.
-
-## Run
-
-```bash
-<tool> scan .
-```
+`timeliner build auth.log app.csv` → merged sorted timeline

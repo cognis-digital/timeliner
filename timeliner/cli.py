@@ -1,38 +1,17 @@
-"""TIMELINER command-line interface."""
-from __future__ import annotations
-import argparse, sys
-from timeliner.core import scan, to_json, TOOL_NAME, TOOL_VERSION
-
+"""timeliner CLI."""
+import argparse, json, sys
+from pathlib import Path
+from timeliner.core import build, TOOL_NAME, TOOL_VERSION
 def main(argv=None) -> int:
-    ap = argparse.ArgumentParser(prog="timeliner", description="TIMELINER — Cognis Neural Suite")
+    ap = argparse.ArgumentParser(prog="timeliner", description="Merge logs/CSVs into one forensic super-timeline.")
     ap.add_argument("--version", action="version", version=f"{TOOL_NAME} {TOOL_VERSION}")
-    sub = ap.add_subparsers(dest="cmd")
-    s = sub.add_parser("scan", help="scan a file or directory")
-    s.add_argument("target")
-    s.add_argument("--format", choices=["table", "json"], default="table")
-    s.add_argument("--fail-on", choices=["critical", "high", "medium", "low"], default=None)
-    sub.add_parser("mcp", help="run as an MCP server")
-    args = ap.parse_args(argv)
-
-    if args.cmd == "mcp":
-        from timeliner.mcp_server import serve
-        return serve()
-    if args.cmd == "scan":
-        res = scan(args.target)
-        if args.format == "json":
-            print(to_json(res))
-        else:
-            if not res.findings:
-                print(f"[{TOOL_NAME}] no findings in {args.target}")
-            for f in res.findings:
-                print(f"  [{f.severity.upper():8}] {f.id}  {f.title}  ({f.where})")
-            print(f"\n{len(res.findings)} findings · risk score {res.score} · {res.elapsed_ms}ms")
-        order = {"critical": 4, "high": 3, "medium": 2, "low": 1}
-        if args.fail_on and any(order.get(f.severity, 0) >= order[args.fail_on] for f in res.findings):
-            return 2
-        return 0
-    ap.print_help()
+    ap.add_argument("files", nargs="+")
+    ap.add_argument("--format", choices=["table", "json"], default="table")
+    a = ap.parse_args(argv)
+    tl = build([(Path(f).name, Path(f).read_text(encoding="utf-8", errors="ignore")) for f in a.files])
+    if a.format == "json": print(json.dumps(tl, indent=2)); return 0
+    for e in tl[:500]:
+        print(f"{e['ts'] or '(undated)':<20} [{e['source']}] {e['event']}")
+    print(f"\n{TOOL_NAME}: {len(tl)} events from {len(a.files)} sources")
     return 0
-
-if __name__ == "__main__":
-    sys.exit(main())
+if __name__ == "__main__": sys.exit(main())

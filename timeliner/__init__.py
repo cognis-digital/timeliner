@@ -1,3 +1,3 @@
-"""TIMELINER — Build a forensic super-timeline by merging & normalizing log/artifact CSVs."""
-from timeliner.core import scan, TOOL_NAME, TOOL_VERSION
-__all__ = ["scan", "TOOL_NAME", "TOOL_VERSION"]
+from timeliner.core import TOOL_NAME, TOOL_VERSION
+from timeliner import core
+__version__ = TOOL_VERSION
