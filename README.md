@@ -16,7 +16,7 @@
 </div>
 
 ```bash
-pip install cognis-timeliner
+pip install "git+https://github.com/cognis-digital/timeliner.git"
 timeliner scan .            # → prioritized findings in seconds
 ```
 
@@ -48,7 +48,7 @@ Build a forensic super-timeline by merging & normalizing log/artifact CSVs — w
 ## Quick start
 
 ```bash
-pip install cognis-timeliner
+pip install "git+https://github.com/cognis-digital/timeliner.git"
 timeliner --version
 timeliner scan .                       # scan current project
 timeliner scan . --format json         # machine-readable
