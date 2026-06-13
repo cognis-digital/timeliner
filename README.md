@@ -16,9 +16,15 @@
 </div>
 
 ```bash
-pip install cognis-timeliner
+pip install "git+https://github.com/cognis-digital/timeliner.git"
 timeliner scan .            # → prioritized findings in seconds
 ```
+
+<!-- cognis:layman:start -->
+## What is this?
+
+Timeliner is a command-line tool that combines multiple log files and data exports into a single, sorted timeline so you can see exactly what happened and when. If you have system logs, audit trails, or event records scattered across different files in different formats, timeliner reads them all, figures out the timestamps, and lines them up in order. It is designed for investigators, system administrators, and security teams who need to reconstruct a sequence of events without manually comparing dozens of files side by side.
+<!-- cognis:layman:end -->
 
 ## Contents
 
@@ -45,10 +51,56 @@ Build a forensic super-timeline by merging & normalizing log/artifact CSVs — w
 <div align="right"><a href="#top">↑ back to top</a></div>
 
 <a name="quick-start"></a>
+<!-- cognis:domains:start -->
+## Domains
+
+**Primary domain:** Cyber & Security  ·  **JTF MERIDIAN division:** NULLBYTE · SPECTER
+
+**Topics:** `cognis` `security` `infosec` `cybersecurity` `blue-team` `forensics`
+
+Part of the **Cognis Neural Suite** — 300+ source-available tools organized across 12 domains under the JTF MERIDIAN command structure. See the [suite on GitHub](https://github.com/cognis-digital) and [jtf-meridian](https://github.com/cognis-digital/jtf-meridian) for how the pieces fit together.
+<!-- cognis:domains:end -->
+
+<!-- cognis:install:start -->
+## Install
+
+`timeliner` is source-available (not published to PyPI) — every method below installs
+straight from GitHub. Pick whichever you prefer; the one-line scripts auto-detect
+the best tool available on your machine.
+
+**One-liner (Linux / macOS):**
+```sh
+curl -fsSL https://raw.githubusercontent.com/cognis-digital/timeliner/HEAD/install.sh | sh
+```
+
+**One-liner (Windows PowerShell):**
+```powershell
+irm https://raw.githubusercontent.com/cognis-digital/timeliner/HEAD/install.ps1 | iex
+```
+
+**Or install manually — any one of:**
+```sh
+pipx install "git+https://github.com/cognis-digital/timeliner.git"     # isolated (recommended)
+uv tool install "git+https://github.com/cognis-digital/timeliner.git"  # uv
+pip install "git+https://github.com/cognis-digital/timeliner.git"      # pip
+```
+
+**From source:**
+```sh
+git clone https://github.com/cognis-digital/timeliner.git
+cd timeliner && pip install .
+```
+
+Then run:
+```sh
+timeliner --help
+```
+<!-- cognis:install:end -->
+
 ## Quick start
 
 ```bash
-pip install cognis-timeliner
+pip install "git+https://github.com/cognis-digital/timeliner.git"
 timeliner --version
 timeliner scan .                       # scan current project
 timeliner scan . --format json         # machine-readable

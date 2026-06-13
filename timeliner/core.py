@@ -1,6 +1,6 @@
 """timeliner core — merge heterogeneous CSV/log files into a normalized forensic timeline."""
 from __future__ import annotations
-import csv, io, re, json
+import csv, io, re
 from datetime import datetime
 TOOL_NAME = "timeliner"; TOOL_VERSION = "1.0.0"
 
