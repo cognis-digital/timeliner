@@ -20,6 +20,30 @@ pip install cognis-timeliner
 timeliner scan .            # → prioritized findings in seconds
 ```
 
+## Usage — step by step
+
+1. **Install** the CLI (console script `timeliner`):
+   ```bash
+   pip install cognis-timeliner
+   ```
+2. **Merge sources into a timeline** — `timeliner` takes one or more log/CSV files as positional arguments and prints a normalized, time-sorted super-timeline:
+   ```bash
+   timeliner auth.log syslog.csv access.log
+   ```
+3. **Emit machine-readable JSON** for piping into other tools:
+   ```bash
+   timeliner auth.log syslog.csv --format json > timeline.json
+   ```
+4. **Read the output** — each event has `ts`, `source`, and `event` fields; the table view prints `(undated)` for unparseable timestamps and a trailing count of events/sources. Slice it with `jq`:
+   ```bash
+   timeliner *.log --format json | jq '.[] | select(.source=="auth.log")'
+   ```
+5. **Automate in CI** — normalize incident artifacts into one timeline:
+   ```yaml
+   - run: pip install cognis-timeliner
+   - run: timeliner artifacts/*.log artifacts/*.csv --format json > timeline.json
+   ```
+
 ## Contents
 
 - [Why timeliner?](#why) · [Features](#features) · [Quick start](#quick-start) · [Example](#example) · [Architecture](#architecture) · [AI stack](#ai-stack) · [How it compares](#how-it-compares) · [Integrations](#integrations) · [Install anywhere](#install-anywhere) · [Related](#related) · [Contributing](#contributing)
