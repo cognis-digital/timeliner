@@ -1,3 +1,4 @@
-from timeliner.core import TOOL_NAME, TOOL_VERSION
-from timeliner import core
+from timeliner.core import TOOL_NAME as TOOL_NAME
+from timeliner.core import TOOL_VERSION
+
 __version__ = TOOL_VERSION

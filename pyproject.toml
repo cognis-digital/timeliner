@@ -32,3 +32,10 @@ timeliner = "timeliner.cli:main"
 
 [tool.hatch.build.targets.wheel]
 packages = ["timeliner"]
+
+[tool.ruff]
+line-length = 105
+
+[tool.ruff.lint]
+select = ["F", "E"]
+per-file-ignores = {"tests/*" = ["E501"]}
