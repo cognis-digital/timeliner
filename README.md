@@ -20,6 +20,75 @@ pip install cognis-timeliner
 timeliner scan .            # → prioritized findings in seconds
 ```
 
+
+<!-- cognis:example:start -->
+## 🔎 Example output
+
+Real, reproducible output from the tool — runs offline:
+
+```console
+$ timeliner-emit --version
+timeliner 1.0.0
+```
+
+```console
+$ timeliner-emit --help
+usage: timeliner [-h] [--version] [--format {table,json}] files [files ...]
+
+Merge logs/CSVs into one forensic super-timeline.
+
+positional arguments:
+  files
+
+options:
+  -h, --help            show this help message and exit
+  --version             show program's version number and exit
+  --format {table,json}
+```
+
+> Blocks above are real `timeliner` output — reproduce them from a clone.
+
+**Sample result format** _(illustrative values — run on your own data for real findings):_
+
+```
+{
+"feed_name": "My Example Feed",
+"spec_version": "2.0",
+"entities": [
+    {
+        "id": "1234567890123456",
+        "type": "indicator",
+        "name": "Example Indicator",
+        "description": "This is an example indicator.",
+        "created_by": "John Doe",
+        "modified": "2023-02-20T14:30:00.000Z"
+    }
+],
+"objects": [
+    {
+        "id": "1234567890123456",
+        "type": "observed-data",
+        "name": "Example Observation",
+        "description": "This is an example observation.",
+        "created_by": "John Doe",
+        "modified": "2023-02-20T14:30:00.000Z"
+    }
+],
+"notes": [
+    {
+        "id": "1234567890123456",
+        "type": "note",
+        "name": "Example Note",
+        "description": "This is an example note.",
+        "created_by": "John Doe",
+        "modified": "2023-02-20T14:30:00.000Z"
+    }
+]
+}
+```
+
+<!-- cognis:example:end -->
+
 ## Usage — step by step
 
 1. **Install** the CLI (console script `timeliner`):

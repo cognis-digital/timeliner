@@ -1,0 +1,13 @@
+$ timeliner-emit --help
+
+usage: timeliner [-h] [--version] [--format {table,json}] files [files ...]
+
+Merge logs/CSVs into one forensic super-timeline.
+
+positional arguments:
+  files
+
+options:
+  -h, --help            show this help message and exit
+  --version             show program's version number and exit
+  --format {table,json}
